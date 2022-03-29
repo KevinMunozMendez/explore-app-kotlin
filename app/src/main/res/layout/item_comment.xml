@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/defaultDp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imgUser"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:circularflow_radiusInDP="@string/action_Item"
+        android:contentDescription="@string/img_user" />
+
+    <TextView
+        android:id="@+id/titleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/defaultDp"
+        tools:text="Titulo de prueba"
+        app:layout_constraintTop_toTopOf="@id/imgUser"
+        app:layout_constraintStart_toEndOf="@id/imgUser"
+        android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Estoy probando como se veria el comentario"
+        app:layout_constraintTop_toBottomOf="@id/titleName"
+        app:layout_constraintStart_toStartOf="@id/titleName"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtIlEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toStartOf="@id/comment"
+        app:layout_constraintEnd_toStartOf="@id/optionMenu"
+        app:layout_constraintTop_toBottomOf="@id/titleName"
+        android:visibility="gone">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtEditEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/checkEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_check"
+        app:layout_constraintTop_toTopOf="@id/txtIlEdit"
+        app:layout_constraintBottom_toBottomOf="@id/txtIlEdit"
+        app:layout_constraintEnd_toEndOf="@id/txtIlEdit"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/optionMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/defaultDp"
+        android:background="?attr/selectableItemBackground"
+        android:src="@drawable/ic_more_vert"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.product.ProductFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageItem"
+            android:layout_width="match_parent"
+            android:padding="@dimen/defaultDp"
+            android:layout_height="290dp"/>
+
+        <LinearLayout
+            android:id="@+id/infoItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/defaultDp">
+
+            <TextView
+                android:id="@+id/titleItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                tools:text="title"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                />
+
+            <TextView
+                android:id="@+id/brandItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/minDp"
+                tools:text="secondary_text"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                />
+
+            <TextView
+                android:id="@+id/descriptionItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/defaultDp"
+                tools:text="supporting_text"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contentBuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/minDp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/infoItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/minDp"
+                app:icon="@drawable/ic_add_shopping_cart"
+                android:text="@string/action_Item_pay" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/discountItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/minDp"
+                    tools:text="secondary_text"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/priceItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="supporting_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintBottom_toTopOf="@id/discountItem"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/txtDiscountItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/defaultDp"
+                    tools:text="supporting_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintEnd_toStartOf="@id/discountItem"
+                    app:layout_constraintBottom_toBottomOf="@id/discountItem"
+                    app:layout_constraintTop_toTopOf="@id/discountItem"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/defaultDp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtIlComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:hint="@string/prompt_comments"
+                app:endIconMode="clear_text">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEditComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textImeMultiLine"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_send"
+                app:layout_constraintTop_toTopOf="@id/txtIlComments"
+                app:layout_constraintBottom_toBottomOf="@id/txtIlComments"
+                app:layout_constraintEnd_toEndOf="@id/txtIlComments"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:listitem="@layout/item_comment"/>
+
+    </LinearLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

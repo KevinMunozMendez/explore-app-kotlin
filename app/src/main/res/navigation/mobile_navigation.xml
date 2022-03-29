@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.drawerlayout.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_cart"
+            app:destination="@id/nav_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_products"
+        android:name="com.example.drawerlayout.ui.products.ProductsFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_nav_products_to_product"
+            app:destination="@id/nav_product"
+            app:enterAnim="@android:anim/accelerate_decelerate_interpolator"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_nav_products_to_cart"
+            app:destination="@id/nav_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_product"
+        android:name="com.example.drawerlayout.ui.product.ProductFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_product">
+        <action
+            android:id="@+id/action_product_to_nav_products"
+            app:destination="@id/nav_products"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_nav_product_to_cart"
+            app:destination="@id/nav_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.example.drawerlayout.ui.cart.CartFragment"
+        android:label="My Cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cart_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_cart_to_nav_product"
+            app:destination="@id/nav_product" />
+        <action
+            android:id="@+id/action_cart_to_nav_products"
+            app:destination="@id/nav_products" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.drawerlayout.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.drawerlayout.ui.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.drawerlayout.ui.main.MainActivity"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
+
+</navigation>

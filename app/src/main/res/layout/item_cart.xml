@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/defaultDp"
+        android:layout_margin="@dimen/minDp"
+        app:cardElevation="@dimen/minDp"
+        android:focusable="true"
+        android:clickable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/defaultDp">
+
+            <ImageView
+                android:id="@+id/imgItem"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/titleItem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/defaultDp"
+                tools:text="Titulo de prueba"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgItem"
+                app:layout_constraintEnd_toStartOf="@id/imgItem"
+                android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+            <TextView
+                android:id="@+id/descriptionItem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/defaultDp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                tools:text="descripcion de prueba"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleItem"
+                app:layout_constraintEnd_toStartOf="@id/imgItem"/>
+
+            <TextView
+                android:id="@+id/priceItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="$200"
+                android:layout_marginStart="@dimen/defaultDp"
+                app:layout_constraintStart_toEndOf="@id/optionMenu"
+                app:layout_constraintTop_toTopOf="@id/optionMenu"
+                app:layout_constraintBottom_toBottomOf="@id/optionMenu"
+                android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+            <ImageButton
+                android:id="@+id/optionMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/defaultDp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_more_vert"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionItem"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <ImageButton
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                android:layout_marginStart="@dimen/defaultDp"
+                android:background="@color/white"
+                app:circularflow_defaultRadius="@dimen/minDp"
+                app:layout_constraintStart_toEndOf="@id/priceItem"
+                app:layout_constraintTop_toTopOf="@id/priceItem"
+                app:layout_constraintBottom_toBottomOf="@id/priceItem"/>
+
+            <TextView
+                android:id="@+id/sum"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/btnAdd"
+                app:layout_constraintTop_toTopOf="@id/priceItem"
+                app:layout_constraintBottom_toBottomOf="@id/priceItem"/>
+
+            <ImageButton
+                android:id="@+id/btnRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_remove"
+                android:background="@color/white"
+                app:layout_constraintStart_toEndOf="@id/sum"
+                app:layout_constraintTop_toTopOf="@id/priceItem"
+                app:layout_constraintBottom_toBottomOf="@id/priceItem"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
